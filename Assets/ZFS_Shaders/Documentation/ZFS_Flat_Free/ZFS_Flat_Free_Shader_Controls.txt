@@ -1,0 +1,55 @@
+
+ZFS_Flat_Free - Parameter Definitions & Notes
+
+An easier to read copy of this material can be found here.
+(http://sidekickapplications.wix.com/assets#!zfs/cy0)
+
+Notes - This shader is meant for use on Flat Objects in Unity Free or Pro. Please note that the fake edge detection 
+on this shader is static and NOT dynamic. Meaning the coordinates for the fake edge must be set manually.
+ 
+Shader Controls
+Brightness - Takes the current values and multiplies them by the given value. This happens after everything else.
+ 
+Intensity- Takes the current values and multiplies them by the given value. Afterwards it is clamped between .05 and 
+.95 then run through the gradient color remap. The effect of doing this can push your values more to the right or to 
+the left of the gradient you decide to use.  If you use solid color the effect will be much less noticeable.
+ 
+Pan Speed - The speed at which the texture moves along is v coordinate.
+ 
+Gradient Or Solid Color - This toggle controls if the shader re maps its black and white values to the gradient color 
+texture or multiplies it by the solid color.
+ 
+Gradient Color - This texture is used to re color the shader. it takes the black and white values then colors them 
+accordingly. Darker values on the left and lighter values on the right. The way this is set up only requires this 
+texture be 1 pixel in height and I recommend somewhere between 256 and 512 in width. only used if gradient or solid 
+color is turned on.
+ 
+Solid Color - Multiplies the final result of the shader by the specified color. Only is used if gradient or solid 
+color is turned off.
+ 
+Texture - The image used to add detail to the shader.
+ 
+Gradient Texture Decay - Think of this texture as a whole bunch of gradients stacked on top of each other. Each pixel 
+row representing a gradient of its own. This gradient is used to re map the values of the shader to be more or less 
+visible in along certain ranges of values. Keep in mind that the shader is set up to only use one pixel row of this at 
+a time. Which pixel row is dictated by the decay slider.  If you really want a unique look to your shaders this is the 
+texture slot to do some experimentation with.
+ 
+Decay - This slider decides which pixel row of the gradient texture decay to use.
+ 
+Mask - This toggle will activate the mask texture to fade out specified parts of the mesh.
+ 
+Make Same As Mask -  In general just keep this toggle at the same value as the mask toggle for best results. If your 
+feeling frisky go ahead and experiment with them being opposite. Results may vary.
+ 
+Mask Texture - This texture is used to map visibility along the UV's.
+ 
+Edge Detection Fake - This switch either adds or removes the fake edging texture from edge fake texture.
+ 
+Gradient Edge Fake - This texture decides the look of the fake edging on the plane.
+ 
+ 
+Soft Texture - Enable this  if you want your texture to appear softer. Note that the gradient texture decay used 
+in this example to the right is designed to have edges so use the alternative one that came in the asset bundle. A great 
+example of a case to use this is the top left flat plane shader that is blue and yellow.
+

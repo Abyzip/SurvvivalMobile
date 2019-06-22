@@ -1,0 +1,67 @@
+ZFS_3D_Pro - Parameter Definitions & Notes
+
+An easier to read copy of these notes can be found here. 
+(http://sidekickapplications.wix.com/assets#!zfs/cy0)
+
+Notes - This shader is meant for use on 3d Objects in Unity Pro. The primary reason that Pro is required is
+ because the shader utilizes camera depth render textures to generate dynamic lines wherever the camera sees 
+mesh within edge detection distance of the mesh that has the shader applied. You can read more about camera 
+depth and how to activate it HERE .
+(http://docs.unity3d.com/ScriptReference/RenderTextureFormat.Depth.html)
+ 
+Shader Controls
+Brightness - Takes the current values and multiplies them by the given value. This happens after everything else.
+ 
+Intensity- Takes the current values and multiplies them by the given value. Afterwards it is clamped between .05 
+and .95 then run through the gradient color remap. The effect of doing this can push your values more to the right
+ or to the left of the gradient you decide to use.  If you use solid color the effect will be much less 
+noticeable.
+ 
+Pan Speed - The speed at which the texture moves along is v coordinate.
+ 
+Gradient Or Solid Color - This toggle controls if the shader re maps its black and white values to the gradient 
+color texture or multiplies it by the solid color.
+ 
+Gradient Color - This texture is used to re color the shader. it takes the black and white values then colors 
+them accordingly. Darker values on the left and lighter values on the right. The way this is set up only requires
+this texture be 1 pixel in height and I recommend somewhere between 256 and 512 in width. only used if gradient or 
+solid color is turned on.
+ 
+Solid Color - Multiplies the final result of the shader by the specified color. Only is used if gradient or solid 
+color is turned off.
+ 
+Texture - The image used to add detail to the shader.
+ 
+Gradient Texture Decay - Think of this texture as a whole bunch of gradients stacked on top of each other. Each 
+pixel row representing a gradient of its own. This gradient is used to re map the values of the shader to be more 
+or less visible in along certain ranges of values. Keep in mind that the shader is set up to only use one pixel row
+of this at a time. Which pixel row is dictated by the decay slider.  If you really want a unique look to your shaders 
+this is the texture slot to do some experimentation with.
+ 
+Decay - This slider decides which pixel row of the gradient texture decay to use.
+ 
+Fresnel - This toggle will fade out geometry faces that are facing towards the camera out and keep one that are facing 
+outwards. This allows you to add texture to a shader but still easily be able to see whats inside. If you want the shader 
+to be solid throughout turn off this switch.
+ 
+Make Same As Fresnel -  In general just keep this toggle at the same value as the fresnel toggle for best results. If 
+your feeling frisky go ahead and experiment with them being opposite. Results may vary.
+ 
+Fresnel Exponent - This controls how extreme the fresnel will be in your shader. Higher values push the glow more towards 
+the edge while lower values allow the texture to bleed into the core.
+ 
+Edge Detection - This enables or disables the dynamic edges that take advantage of the depth render textures. Essentially 
+this works by searching distances behind each pixel of the object this shader is on to the next object behind it. Then it 
+applies a gradient of 0 to 1 depending on how close the pixel is inside of the range of 0 to whatever value you put in the 
+edge detection distance box. REQUIRES UNITY PRO & DEPTH RENDER TEXTURES
+ 
+Edge Detection Distance - The distance the shader will search behind each pixel for a mesh behind it. REQUIRES UNITY PRO & 
+DEPTH RENDER TEXTURES
+ 
+Gradient Edge Detection - This texture is used to remap the values of the gradient given to us by the depth render texture. 
+The result allows us to give any kind of visual quality to the edge as we want. Hard, soft, wavy, anything you like. REQUIRES 
+UNITY PRO & DEPTH RENDER TEXTURES
+ 
+Soft Texture - Enable this  if you want your texture to appear softer. Note that the gradient texture decay used in this 
+example to the right is designed to have edges so use the alternative one that came in the asset bundle. A great example 
+of a case to use this is the top left flat plane shader that is blue and yellow.

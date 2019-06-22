@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Joystick
+  - RGPlayer
+  - RGLevel
+  - epreuve
+  - spawnerBomb
+  - moteurJeu
+  - timerGame
+  - panelPause
+  - Bullet
+  - spawnerProjectile
+  - FxTemporaire
+  - spawnerTornado
+  - Push
+  - SafeZone
+  - DeathZone
+  - Bomb
+  - BombZone
+  - name
+  - ground
+  - spawnerVortex
+  - Teleport
+  - void
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - playerLayer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: playerLayer
+    uniqueID: 2871870327
+    locked: 0
